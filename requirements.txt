@@ -1,5 +1,8 @@
-altair
-numpy
-pandas
-pydeck
-streamlit
+altair==5.1.2
+pip==23.3
+numpy==1.26.0
+pandas==2.1.1
+pydeck== 0.8.1b0
+streamlit==1.27.2
+plotly==5.17.0
+pyecharts==2.0.4
