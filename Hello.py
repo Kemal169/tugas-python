@@ -76,6 +76,8 @@ fig_pie.update_traces(marker=dict(colors=color_sequence))
 
 st.plotly_chart(fig_pie)
 
+st.markdown('**Doughnut Chart**')
+
 fig = px.pie(
     total_kolom_df,
     names="Category",
