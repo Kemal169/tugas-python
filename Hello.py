@@ -3,8 +3,6 @@ import pandas as pd
 import plotly.express as px
 import datetime
 import numpy as np
-from pyecharts.charts import Pie
-from pyecharts import options as opts
 
 # Judul aplikasi
 st.title('Data Covid Pada Tahun 2020')
@@ -57,14 +55,22 @@ fig_setiap_kolom.update_xaxes(
 fig_setiap_kolom.update_layout(title=f"Total {kolom_pilihan} per Bulan ({tanggal_awal.strftime('%B %Y')} - {tanggal_akhir.strftime('%B %Y')})")
 st.plotly_chart(fig_setiap_kolom)
 
-# Pie Chart
 st.markdown('**Pie Chart**')
+
 # Misalnya, di sini kita mengambil total dari setiap kolom yang Anda pilih
 total_kolom = data_subset[["konfirmasi", "sembuh", "meninggal", "negatif"]].sum()
 # Mengonversi total menjadi DataFrame
 total_kolom_df = total_kolom.reset_index()
 total_kolom_df.columns = ["Category", "Total"]
+
+# Definisikan urutan warna yang Anda inginkan
+color_sequence = ["#FF5733", "#33FF57", "#3366FF", "#FFFF33"]
+
 # Gunakan total ini untuk membuat chart Pie
 fig_pie = px.pie(total_kolom_df, names="Category", values="Total")
 fig_pie.update_layout(height=fig_size[1], width=fig_size[0])
+
+# Atur urutan warna pada chart pie
+fig_pie.update_traces(marker=dict(colors=color_sequence))
+
 st.plotly_chart(fig_pie)
