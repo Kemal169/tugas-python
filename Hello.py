@@ -4,6 +4,7 @@ import plotly.express as px
 import datetime
 import numpy as np
 
+
 # Judul aplikasi
 st.title('Data Covid Pada Tahun 2020')
 
@@ -74,3 +75,14 @@ fig_pie.update_layout(height=fig_size[1], width=fig_size[0])
 fig_pie.update_traces(marker=dict(colors=color_sequence))
 
 st.plotly_chart(fig_pie)
+
+fig = px.pie(
+    total_kolom_df,
+    names="Category",
+    values="Total",
+    hole=0.5,  # Mengatur ukuran "doughnut hole"
+    title="Doughnut Chart - Data COVID-19",
+    color_discrete_sequence=color_sequence
+)
+
+st.plotly_chart(fig)
