@@ -130,7 +130,7 @@ elif selected_page == "Charts Pie":
     data_subset = data[(data["tanggal"] >= tanggal_awal) & (data["tanggal"] <= tanggal_akhir)]
 
     # Pilihan kolom yang akan digunakan untuk membuat grafik
-    kolom_pilihan = st.selectbox("Pilih kolom untuk membuat grafik", ["konfirmasi", "sembuh", "meninggal", "negatif", "proses_periksa", "kasus_perawatan"])
+    kolom_pilihan = st.selectbox("Pilih kolom untuk membuat grafik", ["konfirmasi", "sembuh", "meninggal", "negatif"])
 
     # Mengelompokkan data berdasarkan bulan dan menghitung total "kolom yang dipilih pada selectbox" per bulan
     data_subset['bulan'] = data_subset['tanggal'].dt.strftime('%Y-%m')
